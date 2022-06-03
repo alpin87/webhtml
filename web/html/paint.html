@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+    <html lang="ko">
+        <head>
+            <meta charset="UTF-8">    
+            <title></title>
+            <link href="css1/paint.css" type="text/css" rel="stylesheet">
+            <script src="script1/jquery-1.12.3.js"></script>
+            <script src="script1/jqyery.js"></script>  
+  </head>
+  <body>
+  
+    <div class="logo"><a href="../index.html"><img src="image1/logo.png" alt="종합신문모음" ></a></div>   
+
+      <!-- 검색기능시작 -->
+  <form action="https://search.naver.com/search.naver" method="GET">
+      <div class="input-group">
+          <input name="query" type="text" class="input" placeholder="검색어를 입력하시고 엔터를 누르시면 네이버 검색결과창이나옵니다." >
+      </div>
+  </form>
+
+
+    <div id="wrap">
+    <div id="container">
+      <div id="header">  
+        <div class="login-form">
+          <form>
+            <input type="text" name="email" class="text-field" placeholder="아이디">
+            <input type="password" name="password" class="text-field" placeholder="비밀번호">
+            <input type="submit" value="로그인" class="submit-btn">
+          </form>
+          </div>
+        
+
+        <div class="navi_box"> 
+            <ul>
+                <li><a href="#">국내신문사</a> 
+                    <ul class="sub">
+                        <li><a href="https://www.seoul.co.kr/" target="_blank">서울신문</a></li>
+                        <li><a href="https://www.joongang.co.kr/" target="_blank">중앙일보</a></li>
+                        <li><a href="https://www.mk.co.kr/" target="_blank">매일경제</a></li>
+                    </ul>
+
+                </li>
+                <li><a href="#">미국 신문사</a>
+                    <ul class="sub">
+                        <li><a href="https://www.nytimes.com/" target="_blank">뉴욕타임스</a></li>
+                        <li><a href="https://www.dailymail.co.uk/home/index.html" target="_blank">데일리메일</a></li>
+                        <li><a href="https://www.theguardian.com/international" target="_blank">가디언</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">경제신문</a>
+                    <ul class="sub"> 
+                        <li><a href="https://www.wsj.com/" target="_blank">월스트리트 저널</a></li>
+                        <li><a href="https://economist.co.kr/" target="_blank">이코노미스트</a></li>
+                        <li><a href="https://www.hankyung.com/" target="_blank">한국경제</a></li>
+                    </ul>
+                </li>              
+      </div>
+      </div>
+
+      <div id="content">
+        <body>
+    <canvas style="position: relative; margin-top: -700px" id="canvas" width="870" height="800"></canvas>
+    <div class="options">
+        <select id="type">
+            <option value="stroke">실선</option>
+            <option value="square">사각형</option>
+            <option value="eraser">지우개</option>
+        </select>
+        <select id="strokeStyle">
+            <option value="blue">파란색</option>
+            <option value="red">빨간색</option>
+            <option value="pink">분홍색</option>
+            <option value="orange">주황색</option>
+        </select>
+        <select id="lineWidth">
+            <option value="5">5px</option>
+            <option value="10">10px</option>
+            <option value="15">15px</option>
+            <option value="20">20px</option>
+        </select>
+    </div>
+    <script>
+        let isAbleDraw = false;
+        const options = {
+            type: 'stroke',
+            strokeStyle: 'blue',
+            lineWidth: 5,
+        };
+        const rects = [];
+        let currentRect = null;
+        document.getElementById('canvas').addEventListener('mousedown', () => {
+            isAbleDraw = true;
+            currentRect = {
+                type: options.type,
+                strokeStyle: options.strokeStyle,
+                lineWidth: options.lineWidth,
+                coordinates: [],
+            };
+        });
+        document.getElementById('canvas').addEventListener('mousemove', (e) => {
+            if (isAbleDraw) {
+                const ctx = e.target.getContext('2d');
+                const [x, y] = [e.offsetX, e.offsetY];
+                currentRect.coordinates.push([x, y]);
+                drawTools.clear();
+                drawTools.execute(rects);
+                if (currentRect.type === 'stroke') drawTools.stroke(currentRect.coordinates, 'rgba(255, 255, 0, .3)', currentRect.lineWidth);
+                if (currentRect.type === 'eraser') drawTools.eraser(currentRect.coordinates, currentRect.lineWidth);
+                if (currentRect.type === 'square') drawTools.square(currentRect.coordinates, 'rgba(255, 255, 0, .3)');
+            }
+        });
+        document.getElementById('canvas').addEventListener('mouseup', () => {
+            isAbleDraw = false;
+            rects.push(currentRect);
+            drawTools.clear();
+            currentRect = null;
+            drawTools.execute(rects);
+            console.log(rects);
+        })
+
+        const drawTools = {
+            clear() {
+            	// 캔버스 내용 제거
+                const canvas = document.getElementById('canvas');
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            },
+            stroke(coordinates, color, lineWidth) {
+            	// 마우스가 이동한 경로를 따라 실선 그리기
+                if (coordinates.length > 0) {
+                    const ctx = document.getElementById('canvas').getContext('2d');
+                    const firstCoordinate = coordinates[0];
+                    ctx.beginPath();
+                    ctx.moveTo(firstCoordinate[0], firstCoordinate[1]);
+                    for (let i = 1; i < coordinates.length; i += 1) {
+                        ctx.lineTo(coordinates[i][0], coordinates[i][1]);
+                    }
+                    ctx.strokeStyle = color;
+                    ctx.lineWidth = lineWidth;
+                    ctx.stroke();
+                    ctx.closePath();
+                }
+            },
+            eraser(coordinates, lineWidth) {
+            	// 마우스가 이동한 좌표에 따라 하얀색으로 원을 그려서 지우개 기능처럼 동작
+                const canvas = document.getElementById('canvas');
+                const ctx = canvas.getContext('2d');
+                for (let i = 0; i < coordinates.length; i += 1) {
+                    ctx.beginPath();
+                    const coordinate = coordinates[i];
+                    const [x, y] = coordinate;
+                    ctx.fillStyle = 'white';
+                    ctx.arc(x, y, lineWidth / 2, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.closePath();
+                }
+            },
+            execute(rects) {
+            	// rects 배열에 저장 된 도형을 기준으로 다시 캔버스에 그림
+                for (let i = 0; i < rects.length;  i += 1) {
+                    const rect = rects[i];
+                    const { type } = rect;
+                    if (type === 'stroke') this.stroke(rect.coordinates, rect.strokeStyle, rect.lineWidth);
+                    if (type === 'eraser') this.eraser(rect.coordinates, rect.lineWidth);
+                    if (type === 'square') this.square(rect.coordinates, rect.strokeStyle);
+                }
+            },
+            square(coordinates, color) {
+            	// 사각 도형을 그림
+                const canvas = document.getElementById('canvas');
+                const ctx = canvas.getContext('2d');
+                const start = coordinates[0];
+                const end = coordinates[coordinates.length - 1];
+                const [startX, startY] = start;
+                const [endX, endY] = [end[0] - startX, end[1] - startY];
+                ctx.beginPath();
+                ctx.fillStyle = color;
+                ctx.fillRect(startX, startY, endX, endY);
+                ctx.closePath();
+            },
+        };
+        document.getElementById('type').addEventListener('change', (e) => {
+            options.type = e.target.value;
+        });
+        document.getElementById('strokeStyle').addEventListener('change', (e) => {
+            options.strokeStyle = e.target.value;
+        });
+        document.getElementById('lineWidth').addEventListener('change', (e) => {
+            options.lineWidth = e.target.value;
+        });
+    </script>
+</body>
+        </div>
+
+
+
+        
+        <div id="sidebar">
+          <h2 align="center">Sidebar</h2>
+          <ul>
+          <li><a href="total.html">종합 신문기사</a></li>
+            <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="economyvideo.html">경제 비디오</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="paint.html">그림판</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="create.html">사각형 생성</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="audio.html">노래감상</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="map.html">학교 위치</a></li>
+            <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="https://www.instagram.com/alpen_1/">SNS</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+        </ul>   
+        </div>  
+
+      <div id="footer">
+        <p>Copyright</p>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>

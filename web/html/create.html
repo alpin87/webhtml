@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+    <html lang="ko">
+        <head>
+            <meta charset="UTF-8">    
+            <title></title>
+            <link href="css1/style.css" type="text/css" rel="stylesheet">
+            <script src="script1/jquery-1.12.3.js"></script>
+            <script src="script1/jqyery.js"></script>  
+  </head>
+  <body>
+  
+    <div class="logo"><a href="../index.html"><img src="image1/logo.png" alt="종합신문모음" ></a></div>   
+
+      <!-- 검색기능시작 -->
+  <form action="https://search.naver.com/search.naver" method="GET">
+      <div class="input-group">
+          <input name="query" type="text" class="input" placeholder="검색어를 입력하시고 엔터를 누르시면 네이버 검색결과창이나옵니다." >
+      </div>
+  </form>
+
+
+    <div id="wrap">
+    <div id="container">
+      <div id="header">  
+        <div class="login-form">
+          <form>
+            <input type="text" name="email" class="text-field" placeholder="아이디">
+            <input type="password" name="password" class="text-field" placeholder="비밀번호">
+            <input type="submit" value="로그인" class="submit-btn">
+          </form>
+          </div>
+        
+
+        <div class="navi_box"> 
+            <ul>
+                <li><a href="#">국내신문사</a> 
+                    <ul class="sub">
+                        <li><a href="https://www.seoul.co.kr/" target="_blank">서울신문</a></li>
+                        <li><a href="https://www.joongang.co.kr/" target="_blank">중앙일보</a></li>
+                        <li><a href="https://www.mk.co.kr/" target="_blank">매일경제</a></li>
+                    </ul>
+
+                </li>
+                <li><a href="#">미국 신문사</a>
+                    <ul class="sub">
+                        <li><a href="https://www.nytimes.com/" target="_blank">뉴욕타임스</a></li>
+                        <li><a href="https://www.dailymail.co.uk/home/index.html" target="_blank">데일리메일</a></li>
+                        <li><a href="https://www.theguardian.com/international" target="_blank">가디언</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">경제신문</a>
+                    <ul class="sub"> 
+                        <li><a href="https://www.wsj.com/" target="_blank">월스트리트 저널</a></li>
+                        <li><a href="https://economist.co.kr/" target="_blank">이코노미스트</a></li>
+                        <li><a href="https://www.hankyung.com/" target="_blank">한국경제</a></li>
+                    </ul>
+                </li>              
+      </div>
+      </div>
+
+      <div id="content">
+        <h2 style="text-align: center;">사각형 생성하기</h2>
+        <style>
+          td {
+            text-align : right;
+            padding-left : 5px;
+            padding-right : 5px;
+            position: relative;
+            left: 200px;
+
+          }
+          </style>
+          <script>
+          function draw() {
+            var canvas = document.getElementById("myCanvas");
+            var context = canvas.getContext("2d");
+          
+            var x = document.getElementById("x").value;
+            var y = document.getElementById("y").value;
+            var width = document.getElementById("width").value;
+            var height = document.getElementById("height").value;
+            var lineWidth = document.getElementById("lineWidth").value;
+            var strokeStyle = document.getElementById("strokeStyle").value;	
+            context.beginPath();
+            context.rect(x, y, width, height);
+            context.lineWidth = lineWidth;
+            context.strokeStyle = strokeStyle;
+            context.stroke();
+          }
+          function erase() {
+            var canvas = document.getElementById("myCanvas");
+            var context = canvas.getContext("2d");
+            context.clearRect(0, 0, canvas.width, canvas.height);
+          }
+          </script>
+          <form>
+            <table>
+            <tr><td><label>x <input id="x" type="number" value="10"></label></td>
+              <td><label>y <input id="y" type="number" value="10"></label></td></tr>
+            <tr><td><label>width <input id="width" type="number" value="100"></label></td>
+              <td><label>height <input id="height" type="number" value="100"></label></td></tr>
+            <tr><td><label>선굵기 <input id="lineWidth" type="number" value="1"></label></td>
+              <td><label>선색 <input id="strokeStyle" type="color" value="#000000"></label></td></tr>
+            <tr><td><label><button type="button" onclick="draw()">그리기</button></label></td>
+              <td><button type="button" onclick="erase()">지우기</button></td></tr>
+            </table>
+            </form>
+            <canvas id="myCanvas" width="900" height="700" 
+              style="background-color:aliceblue"></canvas>
+        
+        </div>
+
+
+
+        
+        <div id="sidebar">
+          <h2 align="center">Sidebar</h2>
+          <ul>
+          <li><a href="total.html">종합 신문기사</a></li>
+            <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="economyvideo.html">경제 비디오</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="paint.html">그림판</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="create.html">사각형 생성</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="audio.html">노래감상</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="map.html">학교 위치</a></li>
+            <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="https://www.instagram.com/alpen_1/">SNS</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+        </ul>   
+        </div> 
+
+      <div id="footer">
+        <p>Copyright</p>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>

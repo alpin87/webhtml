@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+    <html lang="ko">
+        <head>
+            <meta charset="UTF-8">    
+            <title></title>
+            <link href="css1/style.css" type="text/css" rel="stylesheet">
+            <script src="script1/jquery-1.12.3.js"></script>
+            <script src="script1/jqyery.js"></script>  
+  </head>
+  <body>
+  
+    <div class="logo"><a href="../index.html"><img src="image1/logo.png" alt="종합신문모음" ></a></div>   
+
+      <!-- 검색기능시작 -->
+  <form action="https://search.naver.com/search.naver" method="GET">
+      <div class="input-group">
+          <input name="query" type="text" class="input" placeholder="검색어를 입력하시고 엔터를 누르시면 네이버 검색결과창이나옵니다." >
+      </div>
+  </form>
+
+
+    <div id="wrap">
+    <div id="container">
+      <div id="header">  
+        <div class="login-form">
+          <form>
+            <input type="text" name="email" class="text-field" placeholder="아이디">
+            <input type="password" name="password" class="text-field" placeholder="비밀번호">
+            <input type="submit" value="로그인" class="submit-btn">
+          </form>
+          </div>
+        
+
+        <div class="navi_box"> 
+            <ul>
+                <li><a href="#">국내신문사</a> 
+                    <ul class="sub">
+                        <li><a href="https://www.seoul.co.kr/" target="_blank">서울신문</a></li>
+                        <li><a href="https://www.joongang.co.kr/" target="_blank">중앙일보</a></li>
+                        <li><a href="https://www.mk.co.kr/" target="_blank">매일경제</a></li>
+                    </ul>
+
+                </li>
+                <li><a href="#">미국 신문사</a>
+                    <ul class="sub">
+                        <li><a href="https://www.nytimes.com/" target="_blank">뉴욕타임스</a></li>
+                        <li><a href="https://www.dailymail.co.uk/home/index.html" target="_blank">데일리메일</a></li>
+                        <li><a href="https://www.theguardian.com/international" target="_blank">가디언</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">경제신문</a>
+                    <ul class="sub"> 
+                        <li><a href="https://www.wsj.com/" target="_blank">월스트리트 저널</a></li>
+                        <li><a href="https://economist.co.kr/" target="_blank">이코노미스트</a></li>
+                        <li><a href="https://www.hankyung.com/" target="_blank">한국경제</a></li>
+                    </ul>
+                </li>              
+      </div>
+      </div>
+
+      <div id="content">
+        
+        <h3 style="text-align: center;">오디오 재생</h3>
+        <h4 style="text-align: center;">듣고 싶은 곡의 시작버튼 누르면 연속하여 자동연주됩니다.</h4>
+        <hr>
+        <audio style="width: 500px; height: 80px; position: relative;
+        margin-left: 200px;
+        " id="audio" src="../music/boat.mp3" autoplay loop controls>
+        웹 브라우저가 audio태그를 지원하지 않습니다.</audio>
+        <br>
+
+        <ul>
+            <li><span>1.</span>Boat<button style="margin-left: 50px;" id="play" onclick="control(event)">재생</button> <button id="pause" onclick="control(event)">정지</button></li><hr>
+            <li><span>2.</span>BAD<button style="margin-left: 50px;" id="play2" onclick="control(event)">재생</button> <button id="pause" onclick="control(event)">정지</button></li><hr>
+            <li><span>3.</span>Palette<button style="margin-left: 33px;" id="play3" onclick="control(event)">재생</button> <button id="pause" onclick="control(event)">정지</button></li>
+        </ul>
+
+      
+        <div style="border: 1px solid black; text-align: center; width: 450px; height: 50px; 
+        position: relative; margin-left: 250px;" id="msg">
+          
+        오디오 제어 메세지 출력
+        </div>
+
+        <script>         
+        var div = document.getElementById("msg");
+        var audio=document.getElementById("audio");
+        function control(e){
+            var id=e.target.id;
+            var classes=e.target.calss;
+
+            if(id=="play"){
+                audio.play();
+                audio.src="../music/boat.mp3"
+                div.innerHTML=audio.src+"재생합니다.";
+            }
+            else if(id=="play2"){
+                audio.play();
+                audio.src="../music/bad.mp3"
+                div.innerHTML=audio.src+"재생합니다.";
+            }
+            else if(id=="play3"){
+                audio.play();
+                audio.src="../music/Palette.mp3"
+                div.innerHTML=audio.src+"재생합니다.";
+            }
+            else if(id=="pause"){
+                audio.pause();
+                div.innerHTML="일시중지되었습니다.";
+            }
+
+        }
+        </script>
+        
+        </div>
+
+
+
+        
+        <div id="sidebar">
+          <h2 align="center">Sidebar</h2>
+          <ul>
+          <li><a href="total.html">종합 신문기사</a></li>
+            <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="economyvideo.html">경제 비디오</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="paint.html">그림판</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="create.html">사각형 생성</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="audio.html">노래감상</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="map.html">학교 위치</a></li>
+            <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="https://www.instagram.com/alpen_1/">SNS</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+        </ul>   
+        </div> 
+
+
+        
+      <div id="footer">
+        <p>Copyright</p>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>

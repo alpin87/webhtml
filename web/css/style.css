@@ -1,0 +1,268 @@
+#wrap{width: 1200px; margin: 0 auto;}  
+ul li{list-style: none;}
+a:link{text-decoration: none;}
+body{font-family: Arial, Helvetica, sans-serif, 나눔고딕; 
+    color:#333; background-color: #fff; 
+ }
+
+ html, body{
+  width: 100%;
+  height: 100%;
+  
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+
+#container {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  }
+  
+  #header {
+  padding: 20px;
+  height: 200px;
+  margin-bottom: 20px;
+  border: 0px solid ;
+  background-color: #2dbdbd;
+  border-radius: 20px;
+  
+
+  }
+
+  .logo{
+    width: 100px; 
+    height: 10px; 
+    margin-top:10px;
+    margin-left: 400px;
+    position: relative;
+  }
+
+/* 검색창 */
+  .input-group{
+  position:relative;
+  width: 200px; 
+  height: 80px;
+  margin: auto;
+    
+  }
+  .input{
+    width:500px;
+    height:60px;
+    border: 2px solid rgb(141, 185, 236);
+    font-size: 15px;
+  }
+  /* 검색창 끝*/
+
+  /* 로그인 */
+.login-form {
+  width: 300px;
+  background-color: #EEEFF1;
+  margin-left: 10px;
+  margin-top: -6px;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  border: none;
+    
+}
+ 
+.text-field {
+  font-size: 14px;
+  padding: 10px;
+  border: none;
+  width: 260px;
+  margin-bottom: 20px;
+ 
+}
+ 
+.submit-btn {
+  font-size: 14px;
+  border: none;
+  padding: 10px;
+  width: 260px;
+  background-color: #1BBC9B;
+  margin-bottom: 20px;
+  color: black;
+}
+/* 로그인 끝*/
+
+
+  /*헤더 메뉴 시작*/
+  .navi_box{float: right; width: 800px; height:1000px; 
+    position:relative; margin-top: -200px; margin-left: 400px;  
+    
+    
+ }
+ .navi_box > ul{
+    display: inline; float: center;
+    margin-top: 5em;
+    
+ } 
+ .navi_box > ul > li {
+     width: 100px;
+     height: 50px;
+     border: 1px solid rgb(199, 196, 196);
+     border-top-left-radius: 20px;
+     border-top-right-radius: 20px;
+     display: inline-block;
+     position: relative;
+     width: 195px; height: 50px;
+     text-align: center;
+     background-color: rgb(255, 255, 255);
+ }  
+ .navi_box > ul > li > a {
+     display: block;
+     line-height: 50px;
+     font-size: 18px;
+     font-weight: bold;
+     text-align: center;
+     color: black;
+
+ }
+ .navi_box > ul > li > a:hover {
+     background-color: rgba(255, 255, 255, 0);
+     color: rgb(0, 0, 0);
+
+ }
+ /*헤더 메뉴 끝*/
+
+ /*헤더 메뉴 서브시작*/
+ .sub{
+     position: absolute;
+     height: 140px;
+     background-color: #ffffff;
+     padding: 10px 0;
+     left: -2px;
+     display: none;
+     z-index: 1;
+ }
+.sub > li {
+    width: 198px;
+    height: 45px;
+    text-align : center;
+    
+    
+}
+.sub > li > a {
+    display: block;
+    font-size: 20px;
+    color: black;
+    background-color: rgba(253, 253, 253, 0);
+    line-height: 70px;
+    text-align: center;
+}
+.sub > li > a:hover {
+    background-color: rgba(207, 207, 207, 0);
+    font-weight: bold;
+
+}
+/*헤더 메뉴 서브끝*/
+   
+/*중앙 시작*/
+  #content {
+    width: 900px;
+    height: 950px;
+    padding: 7px;
+    margin-top: -750px;
+    margin-bottom: 20px;
+    float: left;
+    border: 1px solid #bcbcbc;
+  }
+
+  #content > .medicalbox{
+    border:1px solid; padding:10px; 
+    width: 350px; height: 350px;
+    border-top-left-radius: 30px; 
+    border-top-right-radius: 30px; 
+    position: relative;
+    top:43px; left: 50px;
+  }
+
+  #content > .economybox{
+    border:1px solid; padding:10px; 
+    width: 350px; height: 350px;
+    border-top-left-radius: 30px; 
+    border-top-right-radius: 30px;
+    position: relative;
+    top: -330px; left: 500px;
+  }
+
+
+  #content > .subimg{
+    border:0px solid; padding:10px; 
+    width: 790px; height: 40px;
+    position: relative;
+    top: 440px; left: 40px;
+    text-align: center;
+    color: #000;
+  }
+  
+  #content > .imgbox{
+    border:1px solid; 
+    width: 800px; height: 400px;
+    position: relative;
+    top: -30px; left: 40px;
+  }
+/*중앙 끝*/
+
+/*사이바시작*/
+   #sidebar {
+    width: 210px;
+    height: 620px;
+    padding: 10px;
+    margin-top: -750px;
+    margin-bottom: 20px;
+    float: right;
+    background-color: #2dbdbd;
+    border-radius: 30px;
+    position: relative;
+  }
+
+  #sidebar > ul > li{
+    width: 150px;
+    height: 30px;
+    padding: 15px;
+    float: right;
+  }
+
+  #sidebar > ul > li > a{
+    font-size: 22px;
+    color: black;
+  }
+
+  #sidebar > ul > li > a:hover {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(0, 0, 0);
+  }
+
+  #canvas {
+    border: 1px solid #EEE;
+}
+.options {
+    display: flex;
+    align-items: center;
+}
+
+
+  #footer {
+    clear: both;
+    height: 100px;
+    position: relative;
+    border: 1px solid rgb(224, 224, 224);
+  }
+
+  #footer > .line1 {
+    border:1px solid pink; 
+    width: 100px; height: 50px;
+    border-top-left-radius: 30px; 
+    border-top-right-radius: 30px; 
+    position: relative;
+  }
+ 
+
