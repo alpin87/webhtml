@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ko">
+    <html lang="ko">
+        <head>
+            <meta charset="UTF-8">    
+            <title></title>
+            <link href="css1/zosa.css" type="text/css" rel="stylesheet">
+            <script src="script1/jquery-1.12.3.js"></script>
+            <script src="script1/jqyery.js"></script>  
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+  </head>
+  <body>
+  
+    <div class="logo1">
+      <div class="logo"><a href="../index.html"><img src="image1/logo.png" alt="종합신문모음" ></a></div> 
+            <!-- 검색기능시작 -->
+  <form action="https://search.naver.com/search.naver" method="GET">
+    <div class="input-group">
+        <input name="query" type="text" class="input" placeholder="검색어를 입력하시고 엔터를 누르시면 네이버 검색결과창이나옵니다." >
+    </div>
+</form>  
+    </div>
+
+
+    <div id="wrap">
+    <div id="container">
+      <div id="header">  
+        <div class="login-form">
+          <form name="loginform" method="post">
+            <input type="text" id="user_id" class="text-field" placeholder="아이디">
+            <input type="password"id="passwd"class="text-field" placeholder="비밀번호">
+            <input type="submit" value="로그인" class="login-btn" onclick="loginchk()">
+          </form>
+          </div>
+          <script>
+               function loginchk() {
+            var username = document.getElementById("user_id").value;
+            var password = document.getElementById("passwd").value;
+            if (username == null || username == "") {
+                alert("아이디를 입력해주세요.");
+                return false;
+            }
+            if (password == null || password == "") {
+                alert("패스워드를 입력해주세요.");
+                return false;
+            }
+            alert('로그인 성공');
+            
+        } 
+          </script>
+        
+
+        <div class="navi_box"> 
+            <ul>
+                <li><a href="#">국내신문사</a> 
+                    <ul class="sub">
+                        <li><a href="https://www.seoul.co.kr/" target="_blank">서울신문</a></li>
+                        <li><a href="https://www.joongang.co.kr/" target="_blank">중앙일보</a></li>
+                        <li><a href="https://www.mk.co.kr/" target="_blank">매일경제</a></li>
+                    </ul>
+
+                </li>
+                <li><a href="#">미국 신문사</a>
+                    <ul class="sub">
+                        <li><a href="https://www.nytimes.com/" target="_blank">뉴욕타임스</a></li>
+                        <li><a href="https://www.dailymail.co.uk/home/index.html" target="_blank">데일리메일</a></li>
+                        <li><a href="https://www.theguardian.com/international" target="_blank">가디언</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">경제신문</a>
+                    <ul class="sub"> 
+                        <li><a href="https://www.wsj.com/" target="_blank">월스트리트 저널</a></li>
+                        <li><a href="https://economist.co.kr/" target="_blank">이코노미스트</a></li>
+                        <li><a href="https://www.hankyung.com/" target="_blank">한국경제</a></li>
+                    </ul>
+                </li>              
+      </div>
+      </div>
+
+      <div id="content">
+        <form>
+        <h1>설문조사</h1>
+  <fieldset name="inteil">
+    <legend>기본정보</legend>
+    이름:<input type="text" name="name"/><br>
+    나이:<input type="number" name="age" min="0"/><br>
+    성별:<input type="radio" name="gender" value="m" checked/>남성
+    <input type="radio" name="gender" value="f" checked/>여성
+  </fieldset>
+  <br>
+
+  <fieldset name="age">
+    <legend>연령층</legend>
+    <input type="radio" name="agec" value="1"/>10대
+    <input type="radio" name="agec" value="2"/>20대
+    <input type="radio" name="agec" value="3"/>30~40대
+    <input type="radio" name="agec" value="4"/>50대 이상
+  </fieldset>
+  <br>
+  <fieldset name="jumsu">
+    <legend>다음 문항에 1~5점으로 막대를 이동시켜주세요</legend>
+    사이트의 편의성 1 <input type="range" min="1" max="5"/> 5<br>
+    정보가 유용했나요? 1 <input type="range" min="1" max="5"/> 5<br>
+    사이트 구성 정보의 양 1 <input type="range" min="1" max="5"/> 5<br>
+  </fieldset>
+  <br>
+  사이트에 대한 피드백
+  <br>
+  <textarea cols="100" rows="5" placeholder="의견을 입력해주시면 개선하겠습니다."></textarea>
+  <br>
+  <input type="submit" value="확인" onclick="alert('감사합니다!')"/>
+  <input type="reset" value="취소"/>
+</form>
+        </div>
+
+
+
+        
+        <div id="sidebar">
+          <ul>
+          <li><a href="total.html">종합 신문기사</a></li>
+            <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="economyvideo.html">경제 비디오</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="paint.html">그림판</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="create.html">사각형 생성</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="audio.html">노래감상</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="map.html">학교 위치</a></li>
+            <hr align="left" style="border: solid 1px white; width: 90%;">
+
+            <li><a href="zosa.html">설문조사</a></li>
+        <hr align="left" style="border: solid 1px white; width: 90%;">
+
+          <li><a href="https://www.instagram.com/alpen_1/">SNS</a></li>
+          <hr align="left" style="border: solid 1px white; width: 90%;">
+          <a href="https://www.instagram.com/alpen_1/"><img style="margin-top: 10px; margin-left:10px; position: relative" width="40px" height="40px"  src="image1/sns3.jpg" alt=""></a>
+      <a href="https://www.facebook.com/profile.php?id=100004923222265"><img style="margin-top: 10px; margin-left:20px; position: relative" width="40px" height="40px" src="image1/sns1.jpg" alt=""></a>
+        </ul>   
+        </div>  
+
+        <div id="footer">
+          <h3 style="font-size: 20px;">Copyright 2022. Alpin All rights reserved.</h3> 
+          
+          <img style="width: 50px; height: 50px; position: relative; float: left;
+           margin-left: 300px;" src="image1/tel.jpg">
+  
+          <img style="width: 50px; height: 50px; border-radius: 30px;
+           position: relative; float: center;" 
+           src="image1/wic.jpg" alt="">
+  
+          <img style="width: 50px; height: 50px; border-radius: 30px; position: relative;
+          float: right; margin-right: 300px;"
+           src="image1/mail.jpg" alt="">
+  
+           <div class="text1">010-28x2-6x54</div>
+           <div class="text2">Dongjak-gu, Seoul</div>
+           <div class="text3">alpin87@naver.com</div>
+        </div>
+    </div>
+    </div>
+  </body>
+</html>
